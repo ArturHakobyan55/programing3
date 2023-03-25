@@ -175,4 +175,23 @@ function draw() {
   for(let i in bombArr){
     bombArr[i].mul()
   }
+
+
+function main() {
+    var socket = io();
+    var chatDiv = document.getElementById('chat');
+    var input = document.getElementById('message');
+    var button = document.getElementById('submit');
+    
+    function handleSubmit() {
+    var val = input.value;
+    if (val != "") {
+    socket.emit("send message", val);
+    }
+    }
+    button.onclick = handleSubmit;
+    socket.on("display message",headleMessage)
+}
+
+window.onload = main
 }
