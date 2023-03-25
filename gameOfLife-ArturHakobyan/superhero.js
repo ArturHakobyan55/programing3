@@ -1,8 +1,8 @@
- let LivingCreature = require("./LivingCreature")
+let LivingCreature = require("./LivingCreature")
 
 module.exports = class Superhero extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.energy = 8;
         this.multiply = 2
         this.directions = [];
@@ -24,13 +24,18 @@ module.exports = class Superhero extends LivingCreature {
     chooseCell(character) {
         this.getNewCoordinates();
 
-       return  super.chooseCell(char);
+        return super.chooseCell(char);
     }
-
+    random(ch){
+        let found = this.chooseCell(ch);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
+        }
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(0);
+        // var newCell = random(emptyCells);
+        var newCell = this.random(0)
 
         console.log(emptyCells);
         if (newCell && this.multiply >= 15) {
@@ -73,7 +78,7 @@ module.exports = class Superhero extends LivingCreature {
             this.energy++
             var newX = newCell[0]
             var newY = newCell[1]
-for (var i in predatorArr) {
+            for (var i in predatorArr) {
                 if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
                     predatorArr.splice(i, 1)
                     break
@@ -83,7 +88,7 @@ for (var i in predatorArr) {
             matrix[this.y][this.x] = 0
             this.x = newX
             this.y = newY
-            
+
         }
         else {
             this.move()
@@ -94,7 +99,7 @@ for (var i in predatorArr) {
     die() {
         for (let i = 0; i < superheroArr.length; i++) {
             if (superheroArr[i].x == this.x && superheroArr[i].y == this.y) {
-               superheroArr.splice(i, 1)
+                superheroArr.splice(i, 1)
             }
         }
         matrix[this.y][this.x] = 0;

@@ -1,8 +1,8 @@
 let LivingCreature = require("./LivingCreature")
 
-module.exports = class Bomb extends LivingCreature{
+module.exports = class Bomb extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
 
         this.time = 5;
         this.radius = 1
@@ -65,7 +65,7 @@ module.exports = class Bomb extends LivingCreature{
         return found;
     }
     mul() {
-        let emptyCell = this.chooseCell(0,1,2,3,4);
+        let emptyCell = this.chooseCell(0, 1, 2, 3, 4);
         let newCell = random(emptyCell)
 
         if (newCell) {
@@ -73,7 +73,7 @@ module.exports = class Bomb extends LivingCreature{
             let newX = newCell[0];
             let newY = newCell[1];
 
-            for(let i = 0; i < superheroArr.length; i++){
+            for (let i = 0; i < superheroArr.length; i++) {
                 if (superheroArr[i].x == newX && superheroArr[i].y == newY) {
                     superheroArr.splice(i, 1)
                 }
