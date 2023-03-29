@@ -72,6 +72,7 @@
 // }
 
 // var matrix = matrixGenerator(30,40,15,5,30,7,3)
+const socket = io()
 var side = 25
 // //
 
@@ -81,7 +82,6 @@ var side = 25
 // var superheroArr = [] 
 // var whallArr = []
 // var bombArr = []
-
 
 function setup() {
     frameRate(15)
@@ -116,7 +116,7 @@ function setup() {
 }
 
 
-function draw() {
+function changeColor(matrix) {
 
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
@@ -154,6 +154,7 @@ function draw() {
         }
 
     }
+    socket.on("send matrix",changeColor)
 
     // for (let i in grassArr) {
     //     grassArr[i].mul()

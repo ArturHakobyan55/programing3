@@ -91,8 +91,8 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, superhero, Bom
 
         matrix[y][x] = 6
     }
-
-    return matrix
+    io.emit("send matrix")
+    return matrix   
 }
 
 matrix = matrixGenerator(30, 40, 15, 5, 30, 7, 3)
@@ -165,6 +165,6 @@ function gameMove() {
     for (let i in bombArr) {
         bombArr[i].mul()
     }
-
+  io.emit("send matrix")
 }
  setInterval(gameMove,1000)
