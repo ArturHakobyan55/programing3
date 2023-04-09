@@ -1,0 +1,13 @@
+canvas {
+    margin-left: 33%;
+    margin-top: 5%;
+}
+body{
+    background-image: linear-gradient(to right, rgb(0, 51, 255) , rgb(26, 255, 0));
+    background-size: cover;
+
+}
+h1{
+    text-align: center;
+    text-shadow:  2px 2px black;
+}
